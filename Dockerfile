@@ -1,7 +1,10 @@
-#Create MySQL Image for CICDPlay Tutorial Application
-FROM mysql
+# Derived from official mysql image (our base image)
+FROM mysql:8.0.32-debian
 
-ENV MYSQL_ROOT_PASSWORD cicdplaypassword
-ADD cplay.sql /docker-entrypoint-initdb.d
+# Add a database
+ENV MYSQL_DATABASE company
 
-EXPOSE 3306
+# Add the content of the sql-scripts/ directory to your image
+# All scripts in docker-entrypoint-initdb.d/ are automatically
+# executed during container startup
+COPY ./sql-scripts/ /docker-entrypoint-initdb.d/
