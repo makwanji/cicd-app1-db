@@ -29,6 +29,7 @@ services:
         volumes:
             - ./rts-app/.env:/var/www/rts-app/.env
             - ./rts-app/apache/rts-app.conf:/etc/apache2/sites-enabled/000-default.conf
+            - rts_app:/var/www
 
     rts-web:
         image: '${WEB_IMAGE_NAME}'
@@ -41,6 +42,7 @@ services:
         volumes:
             - ./rts-web/.env:/var/www/rts-web/.env
             - ./rts-web/apache/rts-web.conf:/etc/apache2/sites-enabled/000-default.conf
+            - rts_web:/var/www
 volumes:
     mysql_data:
     rts_app:
