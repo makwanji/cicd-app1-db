@@ -1,5 +1,5 @@
 # Derived from official mysql image (our base image)
-FROM mysql:8.0.32-debian
+FROM mysql:8.0.39-debian
 
 # Add a database
 ENV MYSQL_DATABASE company
